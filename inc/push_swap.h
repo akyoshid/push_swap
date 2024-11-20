@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/20 16:11:09 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/21 00:39:58 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ typedef struct s_node
 }	t_node;
 
 void	ft_push_swap(int argc, char *argv[], t_node **ap, t_node **bp);
+
+// free_func.c
 void	free_stack(t_node **sp);
+void	free_2d_array(char **str, int argc);
+// ft_atol.c
+long	ft_atol(const char *str);
+// init_stack_a.c
+void	at_error(t_node **sp, char **numstr, int argc);
+int		check_format(char *str);
+int		check_dupulicate(t_node **sp, int temp_num);
+int		append_node(t_node **sp, int temp_num);
+void	init_stack_a(t_node **sp, char **numstr, int argc);
+// mandatory.c
+char	**proc_arg(int argc, char *argv[]);
 
 #endif
