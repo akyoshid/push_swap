@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:52:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/22 00:02:51 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/22 00:54:18 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ void	at_error(void)
 int	main(int argc, char *argv[])
 {
 	t_node	*stack_a;
-	// t_node	*stack_b;
+	t_node	*stack_b;
 	char	**numstr;
 	// int		stack_a_len;
 
 	stack_a = NULL;
-	// stack_b = NULL;
+	stack_b = NULL;
 	numstr = proc_arg(argc, argv);
 		print_2d_array(numstr);
 		ft_printf("==========================\n");
@@ -70,9 +70,20 @@ int	main(int argc, char *argv[])
 	// 	if (stack_a_len > 3)
 	// 		//sort_more_than_three
 	// }
-	ra(&stack_a);
+	pb(&stack_b, &stack_a);
+	pb(&stack_b, &stack_a);
+	pb(&stack_b, &stack_a);
+	pb(&stack_b, &stack_a);
+		ft_printf("stack_a\n");
 		print_stack(stack_a);
-		ft_printf("==========================\n");
+		ft_printf("stack_b\n");
+		print_stack(stack_b);
+	pa(&stack_a, &stack_b);
+	pa(&stack_a, &stack_b);
+		ft_printf("stack_a\n");
+		print_stack(stack_a);
+		ft_printf("stack_b\n");
+		print_stack(stack_b);
 	free_stack(&stack_a);
 	return (0);
 }
