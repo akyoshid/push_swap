@@ -6,13 +6,13 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:52:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/21 00:40:15 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/21 12:34:47 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-//
+/////////////////////////////////////////
 void	print_2d_array(char **str)
 {
 	int	i;
@@ -37,7 +37,7 @@ void	print_stack(t_node *stack)
 		i++;
 	}
 }
-//
+/////////////////////////////////////////
 
 char	**proc_arg(int argc, char *argv[])
 {
@@ -48,8 +48,12 @@ char	**proc_arg(int argc, char *argv[])
 	else if (argc == 2)
 	{
 		numstr = ft_split(argv[1], ' ');
-		if (numstr == NULL)
+		if (numstr == NULL || numstr[0] == NULL)
+		{
+			free(numstr);
+			ft_printf("Error\n");
 			exit(EXIT_FAILURE);
+		}
 	}
 	else
 		numstr = argv + 1;

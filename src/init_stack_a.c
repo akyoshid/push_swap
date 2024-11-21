@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 00:33:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/21 00:35:21 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/21 12:43:07 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	at_error(t_node **sp, char **numstr, int argc)
 
 int	check_format(char *str)
 {
+	if (*str == '\0')
+		return (1);
 	if (*str == '+' || *str == '-')
 		str++;
 	while (*str != '\0')
