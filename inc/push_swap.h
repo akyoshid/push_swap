@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/21 18:51:35 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/22 00:48:56 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,20 @@ int		append_node(t_node **sp, int temp_num);
 void	init_stack_a(t_node **sp, char **numstr, int argc);
 // mandatory.c
 void	at_error(void);
+// ops_push.c
+void	ops_push(t_node **dest, t_node **from);
+void	pa(t_node **ap, t_node **bp);
+void	pb(t_node **bp, t_node **ap);
+// ops_rotate.c
+void	ops_rotate(t_node **sp);
+void	ra(t_node **ap);
+void	rb(t_node **bp);
+void	rr(t_node **ap, t_node **bp);
+// ops_rvs_rotate.c
+void	ops_rvs_rotate(t_node **sp);
+void	rra(t_node **ap);
+void	rrb(t_node **bp);
+void	rrr(t_node **ap, t_node **bp);
 // ops_swap.c
 void	ops_swap(t_node **sp);
 void	sa(t_node **ap);
@@ -53,6 +67,7 @@ void	ss(t_node **ap, t_node **bp);
 char	**proc_arg(int argc, char *argv[]);
 // stack_utils.c
 int		stack_len(t_node *stack);
+t_node	*stack_find_last(t_node *stack);
 int		stack_check_sorted(t_node *stack);
 
 #endif
