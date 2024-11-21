@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 18:25:10 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/22 00:48:43 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/22 01:05:44 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,16 @@ void	ops_push(t_node **dest, t_node **from)
 	*from = from_second;
 }
 
-void	pa(t_node **ap, t_node **bp)
+void	pa(t_node **ap, t_node **bp, bool print)
 {
 	ops_push(ap, bp);
+	if (print == 1)
+		ft_printf("pa\n");
 }
 
-void	pb(t_node **bp, t_node **ap)
+void	pb(t_node **bp, t_node **ap, bool print)
 {
 	ops_push(bp, ap);
+	if (print == 1)
+		ft_printf("pb\n");
 }

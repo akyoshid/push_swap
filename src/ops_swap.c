@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 18:23:34 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/21 18:51:06 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/22 01:11:41 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,24 @@ void	ops_swap(t_node **sp)
 	*sp = second;
 }
 
-void	sa(t_node **ap)
+void	sa(t_node **ap, bool print)
 {
 	ops_swap(ap);
+	if (print == 1)
+		ft_printf("sa\n");
 }
 
-void	sb(t_node **bp)
+void	sb(t_node **bp, bool print)
 {
 	ops_swap(bp);
+	if (print == 1)
+		ft_printf("sb\n");
 }
 
-void	ss(t_node **ap, t_node **bp)
+void	ss(t_node **ap, t_node **bp, bool print)
 {
 	ops_swap(ap);
 	ops_swap(bp);
+	if (print == 1)
+		ft_printf("ss\n");
 }
