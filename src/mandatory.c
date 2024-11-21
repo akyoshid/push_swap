@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:52:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/21 12:34:47 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/21 13:05:50 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,39 @@ char	**proc_arg(int argc, char *argv[])
 	return(numstr);
 }
 
+int	stack_len(t_node *stack)
+{
+	int	i;
+
+	if (stack == NULL)
+		return (-1);
+	i = 0;
+	while (stack != NULL)
+	{
+		i++;
+		stack = stack->next;
+	}
+	return (i);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_node	*stack_a;
 	// t_node	*stack_b;
 	char	**numstr;
+	int		stack_a_len;
 
 	stack_a = NULL;
 	// stack_b = NULL;
 	numstr = proc_arg(argc, argv);
-	print_2d_array(numstr);
+		print_2d_array(numstr);
+		ft_printf("==========================\n");
 	init_stack_a(&stack_a, numstr, argc);
-	print_stack(stack_a);
+		print_stack(stack_a);
+		ft_printf("==========================\n");
+	stack_a_len = stack_len(stack_a);
+		ft_printf("%d\n", stack_a_len);
+		ft_printf("==========================\n");
 	free_stack(&stack_a);
 	return (0);
 }
