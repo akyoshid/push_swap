@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/21 00:39:58 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:08:11 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	free_2d_array(char **str, int argc);
 // ft_atol.c
 long	ft_atol(const char *str);
 // init_stack_a.c
-void	at_error(t_node **sp, char **numstr, int argc);
+void	at_error_init(t_node **sp, char **numstr, int argc);
 int		check_format(char *str);
 int		check_dupulicate(t_node **sp, int temp_num);
 int		append_node(t_node **sp, int temp_num);
