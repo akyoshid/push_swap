@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:52:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/21 18:50:28 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/22 00:02:51 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	main(int argc, char *argv[])
 	// 	if (stack_a_len > 3)
 	// 		//sort_more_than_three
 	// }
-	sa(&stack_a);
+	ra(&stack_a);
 		print_stack(stack_a);
 		ft_printf("==========================\n");
 	free_stack(&stack_a);
