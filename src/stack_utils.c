@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:21:12 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/21 19:39:11 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/22 01:34:22 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	stack_len(t_node *stack)
 t_node	*stack_find_last(t_node *stack)
 {
 	if (stack == NULL)
-		at_error();
+		return (NULL);
 	while (stack->next != NULL)
 		stack = stack->next;
 	return (stack);
@@ -47,4 +47,22 @@ int	stack_check_sorted(t_node *stack)
 		stack = stack->next;
 	}
 	return (0);
+}
+
+t_node	*stack_find_biggest(t_node *stack)
+{
+	t_node	*temp;
+
+	if (stack == NULL)
+		return (NULL);
+	temp = NULL;
+	while (stack != NULL)
+	{
+		if (temp == NULL)
+			temp = stack;
+		else if (temp->num < stack->num)
+			temp = stack;
+		stack = stack->next;
+	}
+	return (temp);
 }

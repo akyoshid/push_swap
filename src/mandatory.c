@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:52:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/22 00:54:18 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/22 01:41:35 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,42 +48,28 @@ void	at_error(void)
 int	main(int argc, char *argv[])
 {
 	t_node	*stack_a;
-	t_node	*stack_b;
+	// t_node	*stack_b;
 	char	**numstr;
-	// int		stack_a_len;
+	int		stack_a_len;
 
 	stack_a = NULL;
-	stack_b = NULL;
+	// stack_b = NULL;
 	numstr = proc_arg(argc, argv);
-		print_2d_array(numstr);
-		ft_printf("==========================\n");
 	init_stack_a(&stack_a, numstr, argc);
 		print_stack(stack_a);
 		ft_printf("==========================\n");
-	// stack_a_len = stack_len(stack_a);
-	// if (stack_check_sorted(stack_a) == 1)
-	// {
-	// 	if (stack_a_len == 2)
-	// 		//swap
-	// 	if (stack_a_len == 3)
-	// 		//sort_three
-	// 	if (stack_a_len > 3)
-	// 		//sort_more_than_three
-	// }
-	pb(&stack_b, &stack_a);
-	pb(&stack_b, &stack_a);
-	pb(&stack_b, &stack_a);
-	pb(&stack_b, &stack_a);
-		ft_printf("stack_a\n");
+	stack_a_len = stack_len(stack_a);
+	if (stack_check_sorted(stack_a) == 1)
+	{
+		if (stack_a_len == 2)
+			sa(&stack_a, 1);
+		if (stack_a_len == 3)
+			sort_three(&stack_a, 1);
+		// if (stack_a_len > 3)
+		// 	//sort_gt_three
+	}
+		ft_printf("==========================\n");
 		print_stack(stack_a);
-		ft_printf("stack_b\n");
-		print_stack(stack_b);
-	pa(&stack_a, &stack_b);
-	pa(&stack_a, &stack_b);
-		ft_printf("stack_a\n");
-		print_stack(stack_a);
-		ft_printf("stack_b\n");
-		print_stack(stack_b);
 	free_stack(&stack_a);
 	return (0);
 }

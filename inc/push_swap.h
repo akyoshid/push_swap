@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/22 01:13:39 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/22 01:42:26 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,12 @@ void	sb(t_node **bp, bool print);
 void	ss(t_node **ap, t_node **bp, bool print);
 // proc_arg.c
 char	**proc_arg(int argc, char *argv[]);
+// sort_three.c
+void	sort_three(t_node **ap, bool print);
 // stack_utils.c
 int		stack_len(t_node *stack);
 t_node	*stack_find_last(t_node *stack);
 int		stack_check_sorted(t_node *stack);
+t_node	*stack_find_biggest(t_node *stack);
 
 #endif
