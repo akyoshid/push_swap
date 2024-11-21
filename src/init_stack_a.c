@@ -6,13 +6,13 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 00:33:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/21 12:43:07 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/21 14:38:01 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	at_error(t_node **sp, char **numstr, int argc)
+void	at_error_init(t_node **sp, char **numstr, int argc)
 {
 	free_stack(sp);
 	free_2d_array(numstr, argc);
@@ -87,14 +87,14 @@ void	init_stack_a(t_node **sp, char **numstr, int argc)
 	while (numstr[i] != NULL)
 	{
 		if (check_format(numstr[i]) == 1)
-			at_error(sp, numstr, argc);
+			at_error_init(sp, numstr, argc);
 		temp_num = ft_atol(numstr[i]);
 		if (temp_num > INT_MAX || temp_num < INT_MIN)
-			at_error(sp, numstr, argc);
+			at_error_init(sp, numstr, argc);
 		if (check_dupulicate(sp, temp_num) == 1)
-			at_error(sp, numstr, argc);
+			at_error_init(sp, numstr, argc);
 		if (append_node(sp, temp_num) == 1)
-			at_error(sp, numstr, argc);
+			at_error_init(sp, numstr, argc);
 		i++;
 	}
 	free_2d_array(numstr, argc);
