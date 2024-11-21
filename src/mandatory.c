@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:52:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/21 15:08:42 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:28:36 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,54 +43,6 @@ void	at_error(void)
 {
 	ft_printf("Error\n");
 	exit(EXIT_FAILURE);
-}
-
-char	**proc_arg(int argc, char *argv[])
-{
-	char	**numstr;
-
-	if (argc < 2)
-		exit(EXIT_FAILURE);
-	else if (argc == 2)
-	{
-		numstr = ft_split(argv[1], ' ');
-		if (numstr == NULL || numstr[0] == NULL)
-		{
-			free(numstr);
-			at_error();
-		}
-	}
-	else
-		numstr = argv + 1;
-	return(numstr);
-}
-
-int	stack_len(t_node *stack)
-{
-	int	i;
-
-	if (stack == NULL)
-		at_error();
-	i = 0;
-	while (stack != NULL)
-	{
-		i++;
-		stack = stack->next;
-	}
-	return (i);
-}
-
-int	stack_check_sorted(t_node *stack)
-{
-	if (stack == NULL)
-		at_error();
-	while (stack->next != NULL)
-	{
-		if (stack->num >= stack->next->num)
-			return(1);
-		stack = stack->next;
-	}
-	return (0);
 }
 
 int	main(int argc, char *argv[])

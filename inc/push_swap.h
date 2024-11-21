@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/21 15:08:11 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:25:02 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ typedef struct s_node
 	int				push_cost;
 }	t_node;
 
-void	ft_push_swap(int argc, char *argv[], t_node **ap, t_node **bp);
-
 // free_func.c
 void	free_stack(t_node **sp);
 void	free_2d_array(char **str, int argc);
@@ -45,6 +43,11 @@ int		check_dupulicate(t_node **sp, int temp_num);
 int		append_node(t_node **sp, int temp_num);
 void	init_stack_a(t_node **sp, char **numstr, int argc);
 // mandatory.c
+void	at_error(void);
+// proc_arg.c
 char	**proc_arg(int argc, char *argv[]);
+// stack_utils.c
+int		stack_len(t_node *stack);
+int		stack_check_sorted(t_node *stack);
 
 #endif
