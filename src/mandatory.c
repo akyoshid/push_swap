@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:52:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/21 13:05:50 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:08:42 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ void	print_stack(t_node *stack)
 }
 /////////////////////////////////////////
 
+void	at_error(void)
+{
+	ft_printf("Error\n");
+	exit(EXIT_FAILURE);
+}
+
 char	**proc_arg(int argc, char *argv[])
 {
 	char	**numstr;
@@ -51,8 +57,7 @@ char	**proc_arg(int argc, char *argv[])
 		if (numstr == NULL || numstr[0] == NULL)
 		{
 			free(numstr);
-			ft_printf("Error\n");
-			exit(EXIT_FAILURE);
+			at_error();
 		}
 	}
 	else
@@ -65,7 +70,7 @@ int	stack_len(t_node *stack)
 	int	i;
 
 	if (stack == NULL)
-		return (-1);
+		at_error();
 	i = 0;
 	while (stack != NULL)
 	{
@@ -73,6 +78,19 @@ int	stack_len(t_node *stack)
 		stack = stack->next;
 	}
 	return (i);
+}
+
+int	stack_check_sorted(t_node *stack)
+{
+	if (stack == NULL)
+		at_error();
+	while (stack->next != NULL)
+	{
+		if (stack->num >= stack->next->num)
+			return(1);
+		stack = stack->next;
+	}
+	return (0);
 }
 
 int	main(int argc, char *argv[])
@@ -93,6 +111,10 @@ int	main(int argc, char *argv[])
 	stack_a_len = stack_len(stack_a);
 		ft_printf("%d\n", stack_a_len);
 		ft_printf("==========================\n");
+	if (stack_check_sorted(stack_a) == 0)
+		ft_printf("Sorted!\n");
+	else
+		ft_printf("Not sorted.\n");
 	free_stack(&stack_a);
 	return (0);
 }
