@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:52:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/21 15:28:36 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/21 18:50:28 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(int argc, char *argv[])
 	t_node	*stack_a;
 	// t_node	*stack_b;
 	char	**numstr;
-	int		stack_a_len;
+	// int		stack_a_len;
 
 	stack_a = NULL;
 	// stack_b = NULL;
@@ -60,13 +60,19 @@ int	main(int argc, char *argv[])
 	init_stack_a(&stack_a, numstr, argc);
 		print_stack(stack_a);
 		ft_printf("==========================\n");
-	stack_a_len = stack_len(stack_a);
-		ft_printf("%d\n", stack_a_len);
+	// stack_a_len = stack_len(stack_a);
+	// if (stack_check_sorted(stack_a) == 1)
+	// {
+	// 	if (stack_a_len == 2)
+	// 		//swap
+	// 	if (stack_a_len == 3)
+	// 		//sort_three
+	// 	if (stack_a_len > 3)
+	// 		//sort_more_than_three
+	// }
+	sa(&stack_a);
+		print_stack(stack_a);
 		ft_printf("==========================\n");
-	if (stack_check_sorted(stack_a) == 0)
-		ft_printf("Sorted!\n");
-	else
-		ft_printf("Not sorted.\n");
 	free_stack(&stack_a);
 	return (0);
 }
