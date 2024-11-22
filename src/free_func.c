@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:53:48 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/21 00:35:49 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:14:48 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_stack(t_node **sp)
 	t_node	*current_node;
 	t_node	*next_node;
 
-	if (sp == NULL | *sp == NULL)
+	if (sp == NULL || *sp == NULL)
 		return ;
 	current_node = *sp;
 	while (current_node != NULL)
