@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 00:33:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/21 14:38:01 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 02:36:16 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,8 @@ int	append_node(t_node **sp, int temp_num)
 		return (1);
 	new->num = temp_num;
 	new->index = 0;
-	new->above_mid = 0;
 	new->next = NULL;
 	new->target = NULL;
-	new->push_cost = 0;
 	if (*sp == NULL)
 	{
 		*sp = new;

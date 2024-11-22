@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/22 19:23:09 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 03:01:16 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,30 @@ typedef struct s_node
 {
 	int				num;
 	int				index;
-	bool			above_mid;
 	struct s_node	*prev;
 	struct s_node	*next;
 	struct s_node	*target;
-	int				push_cost;
+	int				r_cost;
+	int				rr_cost;
+	int				push_cost[4];
+	int				best_push_cost;
+	int				best_ops_code;
 }	t_node;
+
+// r_cost:
+// 	cost to move this node to the top of the stack by “rotate”
+// rr_cost:
+// 	cost to move this node to the top of the stack by “reverse rotate”
+// ops_code = 0:
+// 	“rotate” both its own stack & target stack
+// ops_code = 1:
+// 	“rotate” its own stack & “reverse rotate” target stack
+// ops_code = 2:
+// 	“reverse rotate” its own stack & “rotate” target stack
+// ops_code = 3:
+// 	“reverse rotate” both its own stack & target stack
+// push_cost[i]:
+// 	cost to push by operations with code i
 
 // free_func.c
 void	free_stack(t_node **sp);
