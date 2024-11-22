@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/22 19:08:02 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/22 19:23:09 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ int		stack_len(t_node *stack);
 t_node	*stack_find_last(t_node *stack);
 int		stack_check_sorted(t_node *stack);
 t_node	*stack_find_max(t_node *stack);
+t_node	*stack_find_min(t_node *stack);
 
 #endif
