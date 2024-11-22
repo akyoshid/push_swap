@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:52:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/22 14:29:09 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:59:16 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	print_stack(t_node *stack)
 	i = 0;
 	while (stack != NULL)
 	{
-		ft_printf("%d: %d\n", i, stack->num);
+		ft_printf("%d: %d: %d\n", i, stack->index, stack->num);
 		stack = stack->next;
 		i++;
 	}
@@ -45,10 +45,26 @@ void	at_error(void)
 	exit(EXIT_FAILURE);
 }
 
-// void	get_best_node(t_node *dest, t_node *from)
-// {
+void	index_stack(t_node *stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack != NULL)
+	{
+		stack->index = i;
+		i++;
+		stack = stack->next;
+	}
+}
+
+void	get_best_node(t_node *dest, t_node *from)
+{
+	index_stack(from);
+	index_stack(dest);
 	
-// }
+	
+}
 
 // void	do_operation(t_node **dest, t_node **from)
 // {
@@ -62,19 +78,19 @@ void	at_error(void)
 
 void	sort_gt_three(t_node **ap, t_node **bp, int stack_a_len, bool print)
 {
-	// int	i;
+	int	i;
 
 	pb(bp, ap, print);
 	if (stack_a_len - 1 > 3)
 		pb(bp, ap, print);
-	// i = 2;
-	// while (stack_a_len - i > 3)
-	// {
-	// 	get_best_node(*bp, *ap);
-	// 	do_operation(bp, ap);
-	// 	i++;
-	// }
-	sort_three(ap, 1);
+	i = 2;
+	while (stack_a_len - i > 3)
+	{
+		get_best_node(*bp, *ap);
+		// do_operation(bp, ap);
+		i++;
+	}
+	// sort_three(ap, 1);
 	// while (i > 0)
 	// {
 	// 	get_best_node(*ap, *bp);
