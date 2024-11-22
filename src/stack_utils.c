@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:21:12 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/22 01:34:22 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/22 19:07:52 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	stack_check_sorted(t_node *stack)
 	return (0);
 }
 
-t_node	*stack_find_biggest(t_node *stack)
+t_node	*stack_find_max(t_node *stack)
 {
 	t_node	*temp;
 

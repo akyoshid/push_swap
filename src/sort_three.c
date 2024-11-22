@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 01:39:20 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/22 01:42:03 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/22 19:08:23 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sort_three(t_node **ap, bool print)
 {
 	t_node	*biggest;
 
-	biggest = stack_find_biggest(*ap);
+	biggest = stack_find_max(*ap);
 	if (biggest == *ap)
 		ra(ap, print);
 	else if (biggest == (*ap)->next)
