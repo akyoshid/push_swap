@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:52:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/22 16:59:16 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/22 19:44:54 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,12 @@ void	print_stack(t_node *stack)
 	i = 0;
 	while (stack != NULL)
 	{
-		ft_printf("%d: %d: %d\n", i, stack->index, stack->num);
+		// ft_printf("%d: %d: %d\n", i, stack->index, stack->num);
+		ft_printf("%d: %d: %d: ", i, stack->index, stack->num);
+		if (stack->target != NULL)
+			ft_printf("%d\n", stack->target->num);
+		else
+			ft_printf("\n");
 		stack = stack->next;
 		i++;
 	}
@@ -58,12 +63,67 @@ void	index_stack(t_node *stack)
 	}
 }
 
-void	get_best_node(t_node *dest, t_node *from)
+void	get_target_node_desc(t_node *dest, t_node *from)
+{
+	t_node	*curr_dest;
+	t_node	*curr_from;
+
+	curr_from = from;
+	while (curr_from != NULL)
+	{
+		curr_from->target = NULL;
+		curr_dest = dest;
+		while (curr_dest != NULL)
+		{
+			if (curr_from->num > curr_dest->num)
+			{
+				if (curr_from->target == NULL)
+					curr_from->target = curr_dest;
+				else if (curr_dest->num > curr_from->target->num)
+					curr_from->target = curr_dest;
+			}
+			curr_dest = curr_dest->next;
+		}
+		if (curr_from->target == NULL)
+			curr_from->target = stack_find_max(dest);
+		curr_from = curr_from->next;
+	}
+}
+
+void	get_target_node_asc(t_node *dest, t_node *from)
+{
+	t_node	*curr_dest;
+	t_node	*curr_from;
+
+	curr_from = from;
+	while (curr_from != NULL)
+	{
+		curr_from->target = NULL;
+		curr_dest = dest;
+		while (curr_dest != NULL)
+		{
+			if (curr_from->num < curr_dest->num)
+			{
+				curr_from->target = curr_dest;
+				break ;
+			}
+			curr_dest = curr_dest->next;
+		}
+		if (curr_from->target == NULL)
+			curr_from->target = stack_find_min(dest);
+		curr_from = curr_from->next;
+	}
+}
+
+t_node	*get_best_node(t_node *dest, t_node *from, bool asc)
 {
 	index_stack(from);
 	index_stack(dest);
-	
-	
+	if (asc == 1)
+		get_target_node_asc(dest, from);
+	else
+		get_target_node_desc(dest, from);
+	return (NULL);
 }
 
 // void	do_operation(t_node **dest, t_node **from)
@@ -78,7 +138,8 @@ void	get_best_node(t_node *dest, t_node *from)
 
 void	sort_gt_three(t_node **ap, t_node **bp, int stack_a_len, bool print)
 {
-	int	i;
+	int		i;
+	t_node	*best_node;
 
 	pb(bp, ap, print);
 	if (stack_a_len - 1 > 3)
@@ -86,14 +147,15 @@ void	sort_gt_three(t_node **ap, t_node **bp, int stack_a_len, bool print)
 	i = 2;
 	while (stack_a_len - i > 3)
 	{
-		get_best_node(*bp, *ap);
+		best_node = get_best_node(*bp, *ap, 0);
+		(void)best_node;
 		// do_operation(bp, ap);
 		i++;
 	}
 	// sort_three(ap, 1);
 	// while (i > 0)
 	// {
-	// 	get_best_node(*ap, *bp);
+	// 	best_node = get_best_node(*bp, *ap, 1);
 	// 	do_operation(ap, bp);
 	// 	i--;
 	// }
