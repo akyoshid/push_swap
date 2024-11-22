@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 03:11:44 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 03:15:21 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 03:25:31 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	get_best_push_cost_ops(t_node *node)
 	i = 0;
 	while (i < 4)
 	{
-		if (i == 0 || node->push_cost[i] <= node->best_push_cost)
+		if (i == 0 || node->push_cost[i] < node->best_push_cost)
 		{
 			node->best_push_cost = node->push_cost[i];
 			node->best_ops_code = i;
