@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 03:01:16 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 03:15:45 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ void	free_stack(t_node **sp);
 void	free_2d_array(char **str, int argc);
 // ft_atol.c
 long	ft_atol(const char *str);
+// get_best_node.c
+void	get_target_node_asc(t_node *dest, t_node* from);
+void	get_target_node_desc(t_node *dest, t_node* from);
+void	get_best_push_cost_ops(t_node *node);
+void	calc_push_cost(t_node *from, int dest_len, int from_len);
+t_node	*get_best_node(t_node* dest, t_node *from, bool asc);
 // init_stack_a.c
 void	at_error_init(t_node **sp, char **numstr, int argc);
 int		check_format(char *str);
@@ -85,11 +91,13 @@ void	ss(t_node **ap, t_node **bp, bool print);
 char	**proc_arg(int argc, char *argv[]);
 // sort_three.c
 void	sort_three(t_node **ap, bool print);
+// stack_find.c
+t_node	*stack_find_last(t_node* stack);
+t_node	*stack_find_max(t_node* stack);
+t_node	*stack_find_min(t_node* stack);
 // stack_utils.c
 int		stack_len(t_node *stack);
-t_node	*stack_find_last(t_node *stack);
 int		stack_check_sorted(t_node *stack);
-t_node	*stack_find_max(t_node *stack);
-t_node	*stack_find_min(t_node *stack);
+void	index_stack(t_node *stack);
 
 #endif
