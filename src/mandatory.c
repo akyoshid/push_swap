@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:52:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 19:28:08 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 20:09:50 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,65 +70,6 @@ void	at_error(void)
 	exit(EXIT_FAILURE);
 }
 
-void	bring_min_2_head(t_node **ap, int stack_a_len)
-{
-	t_node	*min_node;
-	int		i;
-
-	index_stack(*ap);
-	min_node = stack_find_min(*ap);
-	i = 0;
-	if (min_node->index <= stack_a_len / 2)
-	{
-		while (i < min_node->index)
-		{
-			ra(ap, 1);
-			i++;
-		}
-	}
-	else
-	{
-		while (i < stack_a_len - min_node->index)
-		{
-			rra(ap, 1);
-			i++;
-		}
-	}
-}
-
-void	sort_gt_three(t_node **ap, t_node **bp, int stack_a_len)
-{
-	int		i;
-	t_node	*best_node;
-
-	pb(bp, ap, 1);
-	if (stack_a_len - 1 > 3)
-		pb(bp, ap, 1);
-	i = 2;
-	while (stack_a_len - i > 3)
-	{
-		opss_prep(*ap, *bp, 0);
-			best_node = get_best_node(*ap);
-			print_stack_with_info(*ap, 1);
-			print_stack_with_info(*bp, 0);
-			print_best_node(best_node);
-		opss_exec(ap, bp, 0);
-		i++;
-	}
-	sort_three(ap);
-	while (i > 0)
-	{
-		opss_prep(*ap, *bp, 1);
-			best_node = get_best_node(*bp);
-			print_stack_with_info(*ap, 0);
-			print_stack_with_info(*bp, 1);
-			print_best_node(best_node);
-		opss_exec(ap, bp, 1);
-		i--;
-	}
-	bring_min_2_head(ap, stack_a_len);
-}
-
 int	main(int argc, char *argv[])
 {
 	t_node	*stack_a;
@@ -153,10 +94,7 @@ int	main(int argc, char *argv[])
 			sort_gt_three(&stack_a, &stack_b, stack_a_len);
 	}
 		ft_printf("==========================\n");
-		ft_printf("stack_a\n");
 		print_stack(stack_a);
-		ft_printf("stack_b\n");
-		print_stack(stack_b);
 	free_stack(&stack_a);
 	return (0);
 }
