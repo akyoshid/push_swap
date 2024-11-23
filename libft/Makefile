@@ -54,10 +54,12 @@ FTPRINTF_DIR =	$(SRC_DIR)ft_printf/ft_print_char.c \
 				$(SRC_DIR)ft_printf/ft_print_dec.c \
 				$(SRC_DIR)ft_printf/ft_print_hex.c \
 				$(SRC_DIR)ft_printf/ft_printf.c
+GNL_DIR = 		$(SRC_DIR)get_next_line/get_next_line_bonus.c \
+				$(SRC_DIR)get_next_line/get_next_line_utils_bonus.c
 
 # Concatenate all source files
 SRC =	$(FTIS_DIR) $(FTMEM_DIR) $(FTPUT_DIR) $(FTTO_DIR) \
-		$(FTSTR_DIR) $(FTLST_DIR) $(FTPRINTF_DIR)
+		$(FTSTR_DIR) $(FTLST_DIR) $(FTPRINTF_DIR) $(GNL_DIR)
 
 # Generate the list of object files in OBJ_DIR from source files in SRC
 OBJ = $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))
