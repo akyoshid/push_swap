@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 03:11:44 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 14:15:33 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 14:43:12 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,13 +105,18 @@ void	calc_push_cost(t_node *from, int dest_len, int from_len)
 	}
 }
 
-void	opss_prep(t_node *dest, t_node *from, bool asc)
+void	opss_prep(t_node *stack_a, t_node *stack_b, bool pa)
 {
-	index_stack(from);
-	index_stack(dest);
-	if (asc == 1)
-		get_target_node_asc(dest, from);
+	index_stack(stack_a);
+	index_stack(stack_b);
+	if (pa == 1)
+	{
+		get_target_node_asc(stack_a, stack_b);
+		calc_push_cost(stack_b, stack_len(stack_a), stack_len(stack_b));
+	}
 	else
-		get_target_node_desc(dest, from);
-	calc_push_cost(from, stack_len(dest), stack_len(from));
+	{
+		get_target_node_desc(stack_b, stack_a);
+		calc_push_cost(stack_a, stack_len(stack_b), stack_len(stack_a));
+	}
 }

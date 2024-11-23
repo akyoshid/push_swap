@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:52:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 13:51:07 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 14:44:55 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,32 @@ t_node	*get_best_node(t_node *from)
 	return (best_node);
 }
 
+// void	opss0(t_node **dest)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	if (node->r_cost[0] >= node->r_cost[2])
+// 	{
+// 		while (i < node->r_cost[2])
+// 			rr(ap, bp, print)
+// 	}
+// 	while (i < node->r_cost[0] )
+// }
+
 // void	do_operation(t_node **dest, t_node **from, bool print)
 // {
 // 	t_node	*best_node;
+// 	int		i;
 
-// 	// best_node = get_best_node(*dest, *from);
+// 	i = 0;
+// 	best_node = get_best_node(*from);
+// 	if (best_node->best_opss_code == 0)
+
+// 	{
+// 		while ()
+// 	}
+
 // }
 
 // void	bring_min_2_head(t_node **ap, bool print)
@@ -113,7 +134,7 @@ void	sort_gt_three(t_node **ap, t_node **bp, int stack_a_len, bool print)
 	i = 2;
 	while (stack_a_len - i > 3)
 	{
-		opss_prep(*bp, *ap, 0);
+		opss_prep(*ap, *bp, 0);
 		best_node = get_best_node(*ap);
 			print_stack_with_info(*ap, 1);
 			print_stack_with_info(*bp, 0);

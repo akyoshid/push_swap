@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 14:19:09 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 14:43:41 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	get_target_node_asc(t_node *dest, t_node* from);
 void	get_target_node_desc(t_node *dest, t_node* from);
 void	get_best_push_cost_opss(t_node *node);
 void	calc_push_cost(t_node *from, int dest_len, int from_len);
-void	opss_prep(t_node *dest, t_node *from, bool asc);
+void	opss_prep(t_node *stack_a, t_node *stack_b, bool pa);
 // proc_arg.c
 char	**proc_arg(int argc, char *argv[]);
 // sort_three.c
