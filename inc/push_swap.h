@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 20:11:13 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 20:21:08 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ int		check_format(char *str);
 int		check_dupulicate(t_node **sp, int temp_num);
 int		append_node(t_node **sp, int temp_num);
 void	init_stack_a(t_node **sp, char **numstr, int argc);
-// mandatory.c
-void	at_error(void);
 // ops_push.c
 void	ops_push(t_node **dest, t_node **from);
 void	pa(t_node **ap, t_node **bp, bool print);
@@ -107,6 +105,7 @@ void	get_best_push_cost_opss(t_node *node);
 void	calc_push_cost(t_node *from, int dest_len, int from_len);
 void	opss_prep(t_node *stack_a, t_node *stack_b, bool do_pa);
 // proc_arg.c
+void	at_error(void);
 char	**proc_arg(int argc, char *argv[]);
 // sort_gt_three.c
 void	bring_min_2_head(t_node **ap, int stack_a_len);

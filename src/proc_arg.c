@@ -6,11 +6,17 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:23:37 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/21 15:24:00 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 20:20:48 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+void	at_error(void)
+{
+	ft_printf("Error\n");
+	exit(EXIT_FAILURE);
+}
 
 char	**proc_arg(int argc, char *argv[])
 {
