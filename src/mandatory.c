@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:52:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 14:44:55 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:15:23 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ t_node	*get_best_node(t_node *from)
 	return (best_node);
 }
 
-// void	opss0(t_node **dest)
+// void	opss0(t_node **ap, t_node **bp, bool pa, t_node *best_node)
 // {
 // 	int	i;
 
@@ -103,15 +103,18 @@ t_node	*get_best_node(t_node *from)
 // 	while (i < node->r_cost[0] )
 // }
 
-// void	do_operation(t_node **dest, t_node **from, bool print)
+// void	do_operation(t_node **ap, t_node **bp, bool pa)
 // {
 // 	t_node	*best_node;
 // 	int		i;
 
 // 	i = 0;
-// 	best_node = get_best_node(*from);
+// 	if (pa == 1)
+// 		best_node = get_best_node(*bp);
+// 	else
+// 		best_node = get_best_node(*ap);	
 // 	if (best_node->best_opss_code == 0)
-
+// 		opss0(ap, bp, pa, best_node);
 // 	{
 // 		while ()
 // 	}
@@ -123,14 +126,14 @@ t_node	*get_best_node(t_node *from)
 
 // }
 
-void	sort_gt_three(t_node **ap, t_node **bp, int stack_a_len, bool print)
+void	sort_gt_three(t_node **ap, t_node **bp, int stack_a_len)
 {
 	int		i;
 	t_node	*best_node;
 
-	pb(bp, ap, print);
+	pb(bp, ap, 1);
 	if (stack_a_len - 1 > 3)
-		pb(bp, ap, print);
+		pb(bp, ap, 1);
 	i = 2;
 	while (stack_a_len - i > 3)
 	{
@@ -140,7 +143,7 @@ void	sort_gt_three(t_node **ap, t_node **bp, int stack_a_len, bool print)
 			print_stack_with_info(*bp, 0);
 			print_best_node(best_node);
 			pb(bp, ap, 0);
-		// do_operation(bp, ap, print);
+		// do_operation(ap, bp, 0);
 		i++;
 	}
 	// sort_three(ap, print);
@@ -172,9 +175,9 @@ int	main(int argc, char *argv[])
 		if (stack_a_len == 2)
 			sa(&stack_a, 1);
 		if (stack_a_len == 3)
-			sort_three(&stack_a, 1);
+			sort_three(&stack_a);
 		if (stack_a_len > 3)
-			sort_gt_three(&stack_a, &stack_b, stack_a_len, 1);
+			sort_gt_three(&stack_a, &stack_b, stack_a_len);
 	}
 		// ft_printf("==========================\n");
 		// ft_printf("stack_a\n");
