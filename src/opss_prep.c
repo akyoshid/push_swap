@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 03:11:44 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 14:43:12 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 17:22:38 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ void	get_target_node_asc(t_node *dest, t_node *from)
 		{
 			if (curr_from->num < curr_dest->num)
 			{
+				if (curr_from->target == NULL
+					|| curr_dest->num < curr_from->target->num)
 				curr_from->target = curr_dest;
-				break ;
 			}
 			curr_dest = curr_dest->next;
 		}
@@ -51,9 +52,8 @@ void	get_target_node_desc(t_node *dest, t_node *from)
 		{
 			if (curr_from->num > curr_dest->num)
 			{
-				if (curr_from->target == NULL)
-					curr_from->target = curr_dest;
-				else if (curr_dest->num > curr_from->target->num)
+				if (curr_from->target == NULL
+					|| curr_dest->num > curr_from->target->num)
 					curr_from->target = curr_dest;
 			}
 			curr_dest = curr_dest->next;
