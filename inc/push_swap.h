@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 16:40:27 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 17:35:19 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,18 @@ void	ops_swap(t_node **sp);
 void	sa(t_node **ap, bool print);
 void	sb(t_node **bp, bool print);
 void	ss(t_node **ap, t_node **bp, bool print);
+// opss_exec_utils.c
+t_node	*get_best_node(t_node* from);
+void	rotate_its_stack(t_node **ap, t_node **bp, bool do_pa);
+void	rvs_rotate_its_stack(t_node **ap, t_node **bp, bool do_pa);
+void	rotate_target_stack(t_node **ap, t_node **bp, bool do_pa);
+void	rvs_rotate_target_stack(t_node **ap, t_node **bp, bool do_pa);
+// opss_exec.c
+void	opss0(t_node **ap, t_node **bp, bool do_pa, t_node *best_node);
+void	opss1(t_node **ap, t_node **bp, bool do_pa, t_node *best_node);
+void	opss2(t_node **ap, t_node **bp, bool do_pa, t_node *best_node);
+void	opss3(t_node **ap, t_node **bp, bool do_pa, t_node *best_node);
+void	opss_exec(t_node **ap, t_node **bp, bool do_pa);
 // opss_prep.c
 void	get_target_node_asc(t_node *dest, t_node* from);
 void	get_target_node_desc(t_node *dest, t_node* from);
