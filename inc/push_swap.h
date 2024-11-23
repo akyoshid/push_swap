@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 15:11:29 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 16:40:27 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,16 @@ typedef struct s_node
 // r_cost[3]
 // - cost to move the target node to the top of the stack by “reverse rotate”
 // opss_code 0:
-// - “rotate” both its own stack & target stack
+// - “rotate” both its stack & target stack
 // - the larger of r_cost[0] & r_cost[2]
 // opss_code 1:
-// - “rotate” its own stack & “reverse rotate” target stack
+// - “rotate” its stack & “reverse rotate” target stack
 // - r_cost[0] + r_cost[3]
 // opss_code 2:
-// - “reverse rotate” its own stack & “rotate” target stack
+// - “reverse rotate” its stack & “rotate” target stack
 // - r_cost[1] + r_cost[2]
 // opss_code 3:
-// - “reverse rotate” both its own stack & target stack
+// - “reverse rotate” both its stack & target stack
 // - the larger of r_cost[1] & r_cost[3]
 // push_cost[i]:
 // - cost to push by the operations assigned opss_code i
@@ -93,7 +93,7 @@ void	get_target_node_asc(t_node *dest, t_node* from);
 void	get_target_node_desc(t_node *dest, t_node* from);
 void	get_best_push_cost_opss(t_node *node);
 void	calc_push_cost(t_node *from, int dest_len, int from_len);
-void	opss_prep(t_node *stack_a, t_node *stack_b, bool pa);
+void	opss_prep(t_node *stack_a, t_node *stack_b, bool do_pa);
 // proc_arg.c
 char	**proc_arg(int argc, char *argv[]);
 // sort_three.c

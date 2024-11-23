@@ -28,7 +28,7 @@ void	get_target_node_asc(t_node *dest, t_node *from)
 			{
 				if (curr_from->target == NULL
 					|| curr_dest->num < curr_from->target->num)
-				curr_from->target = curr_dest;
+					curr_from->target = curr_dest;
 			}
 			curr_dest = curr_dest->next;
 		}
@@ -105,11 +105,11 @@ void	calc_push_cost(t_node *from, int dest_len, int from_len)
 	}
 }
 
-void	opss_prep(t_node *stack_a, t_node *stack_b, bool pa)
+void	opss_prep(t_node *stack_a, t_node *stack_b, bool do_pa)
 {
 	index_stack(stack_a);
 	index_stack(stack_b);
-	if (pa == 1)
+	if (do_pa == 1)
 	{
 		get_target_node_asc(stack_a, stack_b);
 		calc_push_cost(stack_b, stack_len(stack_a), stack_len(stack_b));
