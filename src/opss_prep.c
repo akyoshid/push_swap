@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_best_node.c                                    :+:      :+:    :+:   */
+/*   opss_prep.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 03:11:44 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 03:25:31 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 14:15:33 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	get_target_node_desc(t_node *dest, t_node *from)
 	}
 }
 
-void	get_best_push_cost_ops(t_node *node)
+void	get_best_push_cost_opss(t_node *node)
 {
 	int	i;
 
@@ -76,7 +76,7 @@ void	get_best_push_cost_ops(t_node *node)
 		if (i == 0 || node->push_cost[i] < node->best_push_cost)
 		{
 			node->best_push_cost = node->push_cost[i];
-			node->best_ops_code = i;
+			node->best_opss_code = i;
 		}
 		i++;
 	}
@@ -86,29 +86,27 @@ void	calc_push_cost(t_node *from, int dest_len, int from_len)
 {
 	while (from != NULL)
 	{
-		from->r_cost = from->index;
-		from->rr_cost = from_len - from->index;
-		from->target->r_cost = from->target->index;
-		from->target->rr_cost = dest_len - from->target->index;
-		if (from->r_cost >= from->target->r_cost)
-			from->push_cost[0] = from->r_cost;
+		from->r_cost[0] = from->index;
+		from->r_cost[1] = from_len - from->index;
+		from->r_cost[2] = from->target->index;
+		from->r_cost[3] = dest_len - from->target->index;
+		if (from->r_cost[0] >= from->r_cost[2])
+			from->push_cost[0] = from->r_cost[0];
 		else
-			from->push_cost[0] = from->target->r_cost;
-		if (from->rr_cost >= from->target->rr_cost)
-			from->push_cost[3] = from->rr_cost;
+			from->push_cost[0] = from->r_cost[2];
+		if (from->r_cost[1] >= from->r_cost[3])
+			from->push_cost[3] = from->r_cost[1];
 		else
-			from->push_cost[3] = from->target->rr_cost;
-		from->push_cost[1] = from->r_cost + from->target->rr_cost;
-		from->push_cost[2] = from->rr_cost + from->target->r_cost;
-		get_best_push_cost_ops(from);
+			from->push_cost[3] = from->r_cost[3];
+		from->push_cost[1] = from->r_cost[0] + from->r_cost[3];
+		from->push_cost[2] = from->r_cost[1] + from->r_cost[2];
+		get_best_push_cost_opss(from);
 		from = from->next;
 	}
 }
 
-t_node	*get_best_node(t_node *dest, t_node *from, bool asc)
+void	opss_prep(t_node *dest, t_node *from, bool asc)
 {
-	t_node	*best_node;
-
 	index_stack(from);
 	index_stack(dest);
 	if (asc == 1)
@@ -116,13 +114,4 @@ t_node	*get_best_node(t_node *dest, t_node *from, bool asc)
 	else
 		get_target_node_desc(dest, from);
 	calc_push_cost(from, stack_len(dest), stack_len(from));
-	best_node = NULL;
-	while (from != NULL)
-	{
-		if (best_node == NULL
-			|| from->best_push_cost < best_node->best_push_cost)
-			best_node = from;
-		from = from->next;
-	}
-	return (best_node);
 }

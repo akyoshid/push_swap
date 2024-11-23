@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:52:47 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 03:12:32 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 13:51:07 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void	print_stack_with_info(t_node *stack, bool target)
 	{
 		if (target == 1)
 		{
-			ft_printf("num:%d, index:[%d], target_index:[%d], push_cost[0]:%d, push_cost[1]:%d, push_cost[2]:%d, push_cost[3]:%d, best_push_cost:%d, best_ops_code:%d\n",
-				stack->num, stack->index, stack->target->index, stack->push_cost[0], stack->push_cost[1], stack->push_cost[2], stack->push_cost[3], stack->best_push_cost, stack->best_ops_code);
+			ft_printf("num:%d, index:[%d], target_index:[%d], push_cost[0]:%d, push_cost[1]:%d, push_cost[2]:%d, push_cost[3]:%d, best_push_cost:%d, best_opss_code:%d\n",
+				stack->num, stack->index, stack->target->index, stack->push_cost[0], stack->push_cost[1], stack->push_cost[2], stack->push_cost[3], stack->best_push_cost, stack->best_opss_code);
 		}
 		else
 			ft_printf("num:%d, index:[%d]\n", stack->num, stack->index);
@@ -62,8 +62,8 @@ void	print_stack_with_info(t_node *stack, bool target)
 void	print_best_node(t_node *node)
 {
 	ft_printf("=== best_node ===\n");
-		ft_printf("num:%d, index:[%d], target_index:[%d], push_cost[0]:%d, push_cost[1]:%d, push_cost[2]:%d, push_cost[3]:%d, best_push_cost:%d, best_ops_code:%d\n",
-			node->num, node->index, node->target->index, node->push_cost[0], node->push_cost[1], node->push_cost[2], node->push_cost[3], node->best_push_cost, node->best_ops_code);
+		ft_printf("num:%d, index:[%d], target_index:[%d], push_cost[0]:%d, push_cost[1]:%d, push_cost[2]:%d, push_cost[3]:%d, best_push_cost:%d, best_opss_code:%d\n",
+			node->num, node->index, node->target->index, node->push_cost[0], node->push_cost[1], node->push_cost[2], node->push_cost[3], node->best_push_cost, node->best_opss_code);
 	ft_printf("=============\n");
 }
 
@@ -75,9 +75,26 @@ void	at_error(void)
 	exit(EXIT_FAILURE);
 }
 
+t_node	*get_best_node(t_node *from)
+{
+	t_node	*best_node;
+
+	best_node = NULL;
+	while (from != NULL)
+	{
+		if (best_node == NULL
+			|| from->best_push_cost < best_node->best_push_cost)
+			best_node = from;
+		from = from->next;
+	}
+	return (best_node);
+}
+
 // void	do_operation(t_node **dest, t_node **from, bool print)
 // {
+// 	t_node	*best_node;
 
+// 	// best_node = get_best_node(*dest, *from);
 // }
 
 // void	bring_min_2_head(t_node **ap, bool print)
@@ -96,7 +113,8 @@ void	sort_gt_three(t_node **ap, t_node **bp, int stack_a_len, bool print)
 	i = 2;
 	while (stack_a_len - i > 3)
 	{
-		best_node = get_best_node(*bp, *ap, 0);
+		opss_prep(*bp, *ap, 0);
+		best_node = get_best_node(*ap);
 			print_stack_with_info(*ap, 1);
 			print_stack_with_info(*bp, 0);
 			print_best_node(best_node);

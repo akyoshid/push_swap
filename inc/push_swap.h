@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 03:15:45 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/23 14:19:09 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,39 +27,40 @@ typedef struct s_node
 	struct s_node	*prev;
 	struct s_node	*next;
 	struct s_node	*target;
-	int				r_cost;
-	int				rr_cost;
+	int				r_cost[4];
 	int				push_cost[4];
 	int				best_push_cost;
-	int				best_ops_code;
+	int				best_opss_code;
 }	t_node;
 
-// r_cost:
-// 	cost to move this node to the top of the stack by “rotate”
-// rr_cost:
-// 	cost to move this node to the top of the stack by “reverse rotate”
-// ops_code = 0:
-// 	“rotate” both its own stack & target stack
-// ops_code = 1:
-// 	“rotate” its own stack & “reverse rotate” target stack
-// ops_code = 2:
-// 	“reverse rotate” its own stack & “rotate” target stack
-// ops_code = 3:
-// 	“reverse rotate” both its own stack & target stack
+// r_cost[0]
+// - cost to move this node to the top of the stack by “rotate”
+// r_cost[1]
+// - cost to move this node to the top of the stack by “reverse rotate”
+// r_cost[2]
+// - cost to move the target node to the top of the stack by “rotate”
+// r_cost[3]
+// - cost to move the target node to the top of the stack by “reverse rotate”
+// opss_code 0:
+// - “rotate” both its own stack & target stack
+// - the larger of r_cost[0] & r_cost[2]
+// opss_code 1:
+// - “rotate” its own stack & “reverse rotate” target stack
+// - r_cost[0] + r_cost[3]
+// opss_code 2:
+// - “reverse rotate” its own stack & “rotate” target stack
+// - r_cost[1] + r_cost[2]
+// opss_code 3:
+// - “reverse rotate” both its own stack & target stack
+// - the larger of r_cost[1] & r_cost[3]
 // push_cost[i]:
-// 	cost to push by operations with code i
+// - cost to push by the operations assigned opss_code i
 
 // free_func.c
 void	free_stack(t_node **sp);
 void	free_2d_array(char **str, int argc);
 // ft_atol.c
 long	ft_atol(const char *str);
-// get_best_node.c
-void	get_target_node_asc(t_node *dest, t_node* from);
-void	get_target_node_desc(t_node *dest, t_node* from);
-void	get_best_push_cost_ops(t_node *node);
-void	calc_push_cost(t_node *from, int dest_len, int from_len);
-t_node	*get_best_node(t_node* dest, t_node *from, bool asc);
 // init_stack_a.c
 void	at_error_init(t_node **sp, char **numstr, int argc);
 int		check_format(char *str);
@@ -87,6 +88,12 @@ void	ops_swap(t_node **sp);
 void	sa(t_node **ap, bool print);
 void	sb(t_node **bp, bool print);
 void	ss(t_node **ap, t_node **bp, bool print);
+// opss_prep.c
+void	get_target_node_asc(t_node *dest, t_node* from);
+void	get_target_node_desc(t_node *dest, t_node* from);
+void	get_best_push_cost_opss(t_node *node);
+void	calc_push_cost(t_node *from, int dest_len, int from_len);
+void	opss_prep(t_node *dest, t_node *from, bool asc);
 // proc_arg.c
 char	**proc_arg(int argc, char *argv[]);
 // sort_three.c
