@@ -40,9 +40,9 @@ MANDATORY_OBJ =		$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(MANDATORY_MAIN))
 BONUS_OBJ =			$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(BONUS_MAIN))
 
 ifdef BONUS
-OBJ += ${BONUS_OBJ}
+OBJ += $(BONUS_OBJ)
 else
-OBJ += ${MANDATORY_OBJ}
+OBJ += $(MANDATORY_OBJ)
 endif
 
 # Use libft.a
@@ -62,11 +62,11 @@ all: $(NAME)
 bonus:
 	@make $(BONUS_NAME) BONUS=1
 
-${NAME}: ${OBJ}
+$(NAME): $(OBJ)
 	@make libft.a -C $(LIBFT_DIR)
 	$(CC) $(CFLAGS) $(OBJ) -I$(INC_DIR) -o $@ $(INCLUDE)
 
-${BONUS_NAME}: ${OBJ}
+$(BONUS_NAME): $(OBJ)
 	@make libft.a -C $(LIBFT_DIR)
 	$(CC) $(CFLAGS) $(OBJ) -I$(INC_DIR) -o $@ $(INCLUDE)
 
