@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/24 19:21:01 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/24 21:53:00 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,6 @@ typedef struct s_ops_node
 	struct s_ops_node	*next;
 }	t_ops_node;
 
-// debug_utils.c
-void		print_2d_array(char **str);
-void		print_stack(t_node *stack);
-void		print_stack_with_info(t_node *stack, bool have_target);
-void		print_best_node(t_node *node);
-void		print_ops_list(t_ops_node *ops_list);
 // exit_func.c
 void		at_error(void);
 void		at_error_init(t_node **sp, char **numstr, int argc);
