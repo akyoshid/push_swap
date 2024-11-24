@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 21:37:52 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/24 14:03:00 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,12 @@ typedef struct s_node
 // - the larger of r_cost[1] & r_cost[3]
 // push_cost[i]:
 // - cost to push by the operations assigned opss_code i
+
+typedef struct s_ops_node
+{
+	int					ops_code;
+	struct s_ops_node	*next;
+}	t_ops_node;
 
 // free_func.c
 void	free_stack(t_node **sp);
@@ -121,5 +127,11 @@ t_node	*stack_find_min(t_node* stack);
 int		stack_len(t_node *stack);
 int		stack_check_sorted(t_node *stack);
 void	index_stack(t_node *stack);
+
+// debuf_utils.c
+void	print_2d_array(char **str);
+void	print_stack(t_node *stack);
+void	print_stack_with_info(t_node *stack, bool have_target);
+void	print_best_node(t_node *node);
 
 #endif
