@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 14:34:20 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/24 14:37:06 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/25 01:08:19 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	at_error(void)
 {
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 
@@ -22,7 +22,7 @@ void	at_error_init(t_node **sp, char **numstr, int argc)
 {
 	free_stack(sp);
 	free_2d_array(numstr, argc);
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 
@@ -45,6 +45,6 @@ void	at_error_checker(t_node **ap, t_ops_node **olp)
 {
 	free_stack(ap);
 	free_ops_list(olp);
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
