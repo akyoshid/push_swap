@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/24 14:40:37 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/24 15:33:43 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,6 @@ typedef struct s_ops_node
 	struct s_ops_node	*next;
 }	t_ops_node;
 
-// create_ops_list.c
-int	convert_ops_code(char *ops_str);
-t_ops_node	*create_ops_node(t_ops_node **olp, t_ops_node *last,
-									char *ops_str, t_node **ap);
-t_ops_node	*create_ops_list(t_node **ap);
 // debug_utils.c
 void	print_2d_array(char **str);
 void	print_stack(t_node *stack);
@@ -91,6 +86,14 @@ int		check_format(char *str);
 int		check_dupulicate(t_node **sp, int temp_num);
 int		append_node(t_node **sp, int temp_num);
 void	init_stack_a(t_node **sp, char **numstr, int argc);
+// ops_list_create.c
+int	convert_ops_code(char *ops_str);
+t_ops_node	*create_ops_node(t_ops_node **olp, t_ops_node *last,
+									char *ops_str, t_node **ap);
+t_ops_node	*create_ops_list(t_node **ap);
+// ops_list_exec.c
+void	exec_ops_code(t_node **ap, t_node **bp, int ops_code);
+void	exec_ops_list(t_node **ap, t_node **bp, t_ops_node *ops_list);
 // ops_push.c
 void	ops_push(t_node **dest, t_node **from);
 void	pa(t_node **ap, t_node **bp, bool print);
