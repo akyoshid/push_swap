@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:21:12 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 03:09:15 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/24 13:43:55 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	stack_check_sorted(t_node *stack)
 	while (stack->next != NULL)
 	{
 		if (stack->num >= stack->next->num)
-			return(1);
+			return (1);
 		stack = stack->next;
 	}
 	return (0);

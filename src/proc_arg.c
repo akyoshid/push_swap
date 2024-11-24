@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:23:37 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 20:20:48 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/24 13:44:16 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ char	**proc_arg(int argc, char *argv[])
 	}
 	else
 		numstr = argv + 1;
-	return(numstr);
+	return (numstr);
 }

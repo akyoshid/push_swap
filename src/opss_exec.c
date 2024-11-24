@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 17:30:57 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 17:32:54 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/24 13:44:48 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ void	opss_exec(t_node **ap, t_node **bp, bool do_pa)
 	if (do_pa == 1)
 		best_node = get_best_node(*bp);
 	else
-		best_node = get_best_node(*ap);	
+		best_node = get_best_node(*ap);
 	if (best_node->best_opss_code == 0)
 		opss0(ap, bp, do_pa, best_node);
 	else if (best_node->best_opss_code == 1)
