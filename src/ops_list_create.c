@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 14:27:39 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/24 15:31:13 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/24 19:19:39 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	convert_ops_code(char *ops_str)
 	return (-1);
 }
 
-t_ops_node	*create_ops_node(t_ops_node **olp, t_ops_node *last,
-									char *ops_str, t_node **ap)
+t_ops_node	*create_ops_node(
+	t_ops_node **olp, t_ops_node *last, char *ops_str, t_node **ap)
 {
 	t_ops_node	*temp;
 
