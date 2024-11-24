@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 20:09:10 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 20:10:17 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/24 21:30:06 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,12 @@ void	sort_gt_three(t_node **ap, t_node **bp, int stack_a_len)
 	int		i;
 
 	pb(bp, ap, 1);
+	i = 1;
 	if (stack_a_len - 1 > 3)
+	{
 		pb(bp, ap, 1);
-	i = 2;
+		i = 2;
+	}
 	while (stack_a_len - i > 3)
 	{
 		opss_prep(*ap, *bp, 0);
