@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:10:56 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/24 14:03:00 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/24 14:40:37 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,30 @@ typedef struct s_ops_node
 	struct s_ops_node	*next;
 }	t_ops_node;
 
+// create_ops_list.c
+int	convert_ops_code(char *ops_str);
+t_ops_node	*create_ops_node(t_ops_node **olp, t_ops_node *last,
+									char *ops_str, t_node **ap);
+t_ops_node	*create_ops_list(t_node **ap);
+// debug_utils.c
+void	print_2d_array(char **str);
+void	print_stack(t_node *stack);
+void	print_stack_with_info(t_node *stack, bool have_target);
+void	print_best_node(t_node *node);
+void	print_ops_list(t_ops_node *ops_list);
+// exit_func.c
+void	at_error(void);
+void	at_error_init(t_node **sp, char **numstr, int argc);
+void	at_success_checker(t_node **ap);
+void	at_ko_checker(t_node **ap, t_node **bp);
+void	at_error_checker(t_node **ap, t_ops_node **olp);
 // free_func.c
 void	free_stack(t_node **sp);
 void	free_2d_array(char **str, int argc);
+void	free_ops_list(t_ops_node **olp);
 // ft_atol.c
 long	ft_atol(const char *str);
 // init_stack_a.c
-void	at_error_init(t_node **sp, char **numstr, int argc);
 int		check_format(char *str);
 int		check_dupulicate(t_node **sp, int temp_num);
 int		append_node(t_node **sp, int temp_num);
@@ -112,7 +129,6 @@ void	get_best_push_cost_opss(t_node *node);
 void	calc_push_cost(t_node *from, int dest_len, int from_len);
 void	opss_prep(t_node *stack_a, t_node *stack_b, bool do_pa);
 // proc_arg.c
-void	at_error(void);
 char	**proc_arg(int argc, char *argv[]);
 // sort_gt_three.c
 void	bring_min_2_head(t_node **ap, int stack_a_len);
@@ -127,11 +143,5 @@ t_node	*stack_find_min(t_node* stack);
 int		stack_len(t_node *stack);
 int		stack_check_sorted(t_node *stack);
 void	index_stack(t_node *stack);
-
-// debuf_utils.c
-void	print_2d_array(char **str);
-void	print_stack(t_node *stack);
-void	print_stack_with_info(t_node *stack, bool have_target);
-void	print_best_node(t_node *node);
 
 #endif

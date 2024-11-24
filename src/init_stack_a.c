@@ -6,19 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 00:33:17 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/23 02:36:16 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/24 14:36:32 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-void	at_error_init(t_node **sp, char **numstr, int argc)
-{
-	free_stack(sp);
-	free_2d_array(numstr, argc);
-	ft_printf("Error\n");
-	exit(EXIT_FAILURE);
-}
 
 int	check_format(char *str)
 {

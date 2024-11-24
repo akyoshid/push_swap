@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:53:48 by akyoshid          #+#    #+#             */
-/*   Updated: 2024/11/22 17:14:48 by akyoshid         ###   ########.fr       */
+/*   Updated: 2024/11/24 14:30:15 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,21 @@ void	free_2d_array(char **str, int argc)
 		}
 		free(str);
 	}
+}
+
+void	free_ops_list(t_ops_node **olp)
+{
+	t_ops_node	*current_node;
+	t_ops_node	*next_node;
+
+	if (olp == NULL || *olp == NULL)
+		return ;
+	current_node = *olp;
+	while (current_node != NULL)
+	{
+		next_node = current_node->next;
+		free(current_node);
+		current_node = next_node;
+	}
+	*olp = NULL;
 }
